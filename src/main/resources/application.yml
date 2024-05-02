@@ -1,0 +1,33 @@
+server:
+  port: 8080
+spring:
+  h2:
+    console:
+      enabled: true
+  application:
+    name: pruebaTecnica
+  datasource:
+    password: password
+    username: sa
+    url: jdbc:h2:mem:duxdb
+    driver-class-name: org.h2.Driver
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+  sql:
+    init:
+      mode: always
+      data-locations:
+        - classpath:db/schema.sql
+        - classpath:db/data.sql
+
+springdoc:
+  open-api:
+    info:
+      title: "Api de equipos de futbol"
+      description: "Documentacion para hacer consultas a api de equipos de futbol"
+  swagger-ui:
+    use-root-path: true
+    persist-authorization: true
